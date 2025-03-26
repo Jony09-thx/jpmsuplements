@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #E0D8D6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Menú lateral */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #2c3e50;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            margin-top: 60px;
+        }
+
+        .sidebar li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #34495e;
+            transition: background 0.3s ease;
+        }
+
+        .sidebar li:hover {
+            background: #34495e;
+        }
+
+        .sidebar a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Botón de menú */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #1877f2;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: background 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: #165dbb;
+        }
+
+        /* Contenedor principal */
+        .login-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .login-container p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            color: #333;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background: #1877f2;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: #165dbb;
+        }
+
+        /* Botón de Facebook */
+        .fb-login-button {
+            background: #1877f2;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .fb-login-button:hover {
+            background: #165dbb;
+        }
+
+        /* Enlace de registro */
+        .register-link {
+            color: #1877f2;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .register-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i> Menú
+    </button>
+
+    <!-- Menú lateral -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="../index.php"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="#"><i class="fas fa-dumbbell"></i> Productos</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contacto</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+        </ul>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Contenedor de login -->
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <p>Conéctate para acceder a tu cuenta y disfrutar de los mejores suplementos fitness.</p>
+
+        <form action="../CRUD/login.php" method="POST">
+            <label>Usuario:</label>
+            <input type="text" name="usuario" required>
+            <label>Contraseña:</label>
+            <input type="password" name="password" required>
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+
+        <!-- Botón de Facebook con API -->
+        <div class="fb-login-button">
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
+        </div>
+        <div id="status"></div>
+
+        <!--Link para registro-->
+        <a href="../formulario.php" class="register-link">¿No tienes cuenta? Regístrate</a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/ceb1921ab7.js" crossorigin="anonymous"></script>
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+    </script>
+    <!-- SDK de Facebook -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0"></script>
+    <script src="fb.js"></script>
+</body>
+</html>

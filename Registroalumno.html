@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../~Css Formularios/registroalumno.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearningCard/RegistroNuevo</title>
+    <link rel="shortcut icon" href="../MULTIMEDIA/IMAGENES/LOTIPO/LEARNING.jpg">
+</head>
+<body>
+    <header class="header p-5 text-center">
+        <img src="../MULTIMEDIA/IMAGENES/LOTIPO/LEARNING.jpg" alt="logo" width="250" height="250" class="img-fluid rounded-circle mb-4">
+        <h1 class="display-3">Registro en PETCHOP</h1>
+    </header>
+    <br>
+    <main>
+    <div>
+        <center>
+        <h2 class="display-5"><em>¡Rellena los campos con lo que se pide!</em></h2><br><br>
+        <form method="post" action="#">
+            <div>
+                <label for="username">Nombre: </label>
+                <input type="text" class="form-control" id="username" required><br>
+            </div>
+            <div>
+                <label for="lastName">Apellido Paterno: </label>
+                <input type="text" class="form-control" id="lastName" required><br>
+            </div>
+            <div>
+                <label for="secondLastName">Apellido Materno: </label>
+                <input type="text" class="form-control" id="secondLastName" required><br>
+            </div>
+            <div>
+                <label for="especialidad">calle: </label>
+                <input type="text" class="form-control" id="especialidad" required><br>
+            </div>
+            <div>
+                <label for="especialidad">colonia: </label>
+                <input type="text" class="form-control" id="especialidad" required><br>
+            </div>
+            <div>
+                <label for="especialidad">municipio: </label>
+                <input type="text" class="form-control" id="especialidad" required><br>
+            </div>
+            <div>
+                <label for="especialidad">codigo postal: </label>
+                <input type="text" class="form-control" id="especialidad" required><br>
+            </div>
+            <div>
+                <label for="especialidad">numero interno: </label>
+                <input type="text" class="form-control" id="especialidad" required><br>
+            </div>
+            <div>
+                <label for="especialidad">numero externo: </label>
+                <input type="text" class="form-control" id="especialidad" required><br>
+            </div>
+            <div>
+                <label for="especialidad">sexo: </label>
+                <input type="text" class="form-control" id="especialidad" required><br>
+            </div>
+            <div>
+                <label for="email">Correo electrónico: </label>
+                <input type="email" class="form-control" id="email" required><br>
+            </div>
+            <div>
+                <label for="especialidad">Telefono: </label>
+                <input type="text" class="form-control" id="especialidad" required><br>
+            </div>
+            <div>
+                <label for="especialidad">fecha nacimiento: </label>
+                <input type="text" class="form-control" id="especialidad" required placeholder="dd/mm/aaaa"><br>
+            </div>
+            <br><br>
+            <a href="./Html Acciones Alumno/LoginAlumno.html">
+                <button type="submit" class="btn btn-primary btn-lg" onclick="animateButton()">
+                  ¡CREAR CUENTA!</button>
+             </a>
+             <br><br><br>
+        </form>
+        </center>
+    </div>
+    <center>
+        <br><br>
+        <a href="../Html Publico/indexprueba.html">
+        <button class="styled-button" class="btn btn-primary btn-lg" onclick="animateButton()">
+            Volver al Inicio
+        </button>
+    </a>
+    <a href="../Html Publico/rol.html">
+        <button class="styled-button" class="btn btn-primary btn-lg" onclick="animateButton()">
+            Atras
+        </button>
+    </a>
+        <br><br><br>
+        </center>
+    </main>
+    <script>
+        function animateButton() {
+            var btn = document.querySelector(".btn");
+            btn.classList.add("animated");
+            setTimeout(function() {
+                btn.classList.remove("animated");
+            }, 1000);
+        }
+    </script> 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+    <footer class="footer mt-auto py-4  text-center">
+         <div class="container">
+           <span>&copy; 2024 Generador de Tarjetas Educativas</span>
+         </div>
+    </footer>
+</html>

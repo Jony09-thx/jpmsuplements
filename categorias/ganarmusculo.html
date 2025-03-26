@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../index.css">
+    <title>Ganar Musculo</title>
+
+    <style>
+
+        /* Menú lateral */
+.sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Oculto por defecto */
+            width: 250px;
+            height: 100%;
+            background-color: #2c3e50;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* Mostrar el menú lateral */
+        .sidebar.active {
+            left: 0;
+        }
+
+        /* Botón para abrir/cerrar el menú */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #1877f2;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background-color: #165dbb;
+        }
+
+        .menu-toggle i {
+            margin-right: 8px;
+        }
+
+        /* Estilos del contenido del menú */
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-top: 60px;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #34495e;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #34495e;
+        }
+
+        .sidebar ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        /* Overlay para el fondo oscuro */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+
+/*carrussel*/
+.carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease; /* Transición suave */
+}
+.slide {
+    min-width: 100%; /* Cada diapositiva ocupa el ancho completo */
+}
+.slide img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+button {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.add-cart a {
+    text-decoration: none;
+    color: inherit; /* o el color que prefieras para el ícono */
+}
+
+.add-cart i {
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+ <!-- Botón para abrir/cerrar el menú -->
+ <button class="menu-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i> Menú
+</button>
+
+<!-- Menú lateral -->
+<div class="sidebar" id="sidebar">
+    <ul>
+        <li><a href="../index.php"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="fas fa-dumbbell"></i> Productos</a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i> Contacto</a></li>
+        <li><a href="#"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+    </ul>
+</div>
+
+<!-- Overlay para el fondo oscuro -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+
+
+<div class="carousel">
+    <div class="slides">
+        <div class="slide"><img src="../images/banner.png" alt="Imagen 1"></div>
+        <div class="slide"><img src="../images/proteinaiso.jpg" alt="Imagen 2"></div>
+        <div class="slide"><img src="../images/evp.webp" alt="Imagen 3"></div>
+    </div>
+</div>
+<script src="carrussel.js"></script>
+
+
+
+    <div class="container-products">
+        <!-- Producto 1 -->
+        <div class="card-product">
+            <div class="container-img">
+                <img src="../images/proteinaiso.jpg" alt="Cafe Irish" />
+                <span class="discount">-13%</span>
+                <div class="button-group">
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-heart" id="heart-1" onclick="toggleFavorite(1)"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="content-card-product">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star-half-stroke"></i>
+                </div>
+                <h3 class="product-name">Proteina ISO100</h3>
+                <button>
+                <span class="add-cart">
+                
+                    <a href="../ventashopify/ganarmusc/isoprote.html">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    </a>
+                
+                </span>
+                </button>
+                <p class="price">$4.60 <span>$5.30</span></p>
+            </div>
+        </div>
+        <!-- Producto 2 -->
+        <div class="card-product">
+            <div class="container-img">
+                <img
+                    src="../images/mass.webp"
+                    alt="Cafe incafe-ingles.jpg"
+                />
+                <span class="discount">-22%</span>
+                <div class="button-group">
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-heart" id="heart-2" onclick="toggleFavorite(2)"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="content-card-product">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3 class="product-name">Proteina MUTANT (MASS GAINER)</h3>
+                <button>
+                    <span class="add-cart">
+                    
+                        <a href="../ventashopify/ganarmusc/mutanmass.html">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        </a>
+                    
+                    </span>
+                </button>
+                <p class="price">$5.70 <span>$7.30</span></p>
+            </div>
+        </div>
+        <!--Producto 3 -->
+        <div class="card-product">
+            <div class="container-img">
+                <img
+                    src="../images/creatinas.jfif"
+                    alt="Cafe Australiano"
+                />
+                <div class="button-group">
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-heart"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="content-card-product">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3 class="product-name" >Creatina Monohidratada</h3>
+                <button>
+                    <span class="add-cart">
+                    
+                        <a href="../ventashopify/ganarmusc/creatinabirdman.html">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        </a>
+                    
+                    </span>
+                </button>
+                <p class="price">$3.20</p>
+            </div>
+        </div>
+        <!-- Producto 4 -->
+        <div class="card-product">
+            <div class="container-img">
+                <img src="../images/psychotic.webp" alt="Cafe Helado" />
+                <div class="button-group">
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-heart"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="content-card-product">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3 class="product-name">INSANE LABZ PSYCHOTIC (PRE-WORKOUT)</h3>
+                <button>
+                    <span class="add-cart">
+                    
+                        <a href="../ventashopify/ganarmusc/insanepsychotic.html">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        </a>
+                    
+                    </span>
+                </button>
+                <p class="price">$5.60</p>
+            </div>
+        </div>
+        <!--Producto 5-->
+        <div class="card-product">
+            <div class="container-img">
+                <img src="../images/IsoJect_Master_birthday_cake_copy.webp" alt="Cafe Irish" />
+                <span class="discount">-13%</span>
+                <div class="button-group">
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-heart" id="heart-1" onclick="toggleFavorite(1)"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="content-card-product">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star-half-stroke"></i>
+                </div>
+                <h3 class="product-name">Proteina IsoJect (Birthday Cake)</h3>
+                <button>
+                    <span class="add-cart">
+                    
+                        <a href="../ventashopify/ganarmusc/protecake.html">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        </a>
+                    
+                    </span>
+                </button>
+                <p class="price">$4.60 <span>$5.30</span></p>
+            </div>
+        </div>
+        <!-- Producto 6 -->
+        <div class="card-product">
+            <div class="container-img">
+                <img
+                    src="../images/Essentials_Creatine_Unflavoredfront1023.webp"
+                    alt="Cafe incafe-ingles.jpg"
+                />
+                <span class="discount">-22%</span>
+                <div class="button-group">
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-heart" id="heart-2" onclick="toggleFavorite(2)"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="content-card-product">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3 class="product-name">Creatina Monohidratada (Essential Series)</h3>
+                <button>
+                    <span class="add-cart">
+                    
+                        <a href="../ventashopify/ganarmusc/creatinaevo.html">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        </a>
+                    
+                    </span>
+                </button>
+                <p class="price">$5.70 <span>$7.30</span></p>
+            </div>
+        </div>
+        <!-- Producto 7 -->
+        <div class="card-product">
+            <div class="container-img">
+                <img
+                    src="../images/AminoJectrendersblueraspberry.webp"
+                    alt="Cafe Australiano"
+                />
+                <div class="button-group">
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-heart"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="content-card-product">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3 class="product-name" >AminoJect BCAA</h3>
+                <button>
+                    <span class="add-cart">
+                    
+                        <a href="../ventashopify/ganarmusc/aminobca.html">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        </a>
+                    
+                    </span>
+                </button>
+                <p class="price">$3.20</p>
+            </div>
+        </div>
+        <!-- Producto 8 -->
+        <div class="card-product">
+            <div class="container-img">
+                <img src="../images/SuperhugemockCPB.webp" alt="Cafe Helado" />
+                <div class="button-group">
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-heart"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="content-card-product">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3 class="product-name">Ganador de Masa Muscular </h3>
+                <button>
+                    <span class="add-cart">
+                    
+                        <a href="../ventashopify/ganarmusc/ganadorevo.html">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        </a>
+                    
+                    </span>
+                </button>
+                <p class="price">$5.60</p>
+            </div>
+        </div>
+        <!-- Producto 9 -->
+        <div class="card-product">
+            <div class="container-img">
+                <img
+                    src="../images/AminoKEMwatermelon.webp"
+                    alt="Cafe Australiano"
+                />
+                <div class="button-group">
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-heart"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="content-card-product">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3 class="product-name" >Aminoácidos KEM (Sabor sandía)</h3>
+                <button>
+                    <span class="add-cart">
+                    
+                        <a href="../ventashopify/ganarmusc/aminokem.html">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        </a>
+                    
+                    </span>
+                </button>
+                <p class="price">$3.20</p>
+            </div>
+        </div>
+        <!-- Producto 10 -->
+        <div class="card-product">
+            <div class="container-img">
+                <img
+                    src="../images/Sour-Blue-Gummy-Box-STR-S.webp"
+                    alt="Cafe Australiano"
+                />
+                <div class="button-group">
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-heart"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-code-compare"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="content-card-product">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3 class="product-name" >EVP Extreme AQ</h3>
+                <button>
+                    <span class="add-cart">
+                    
+                        <a href="../ventashopify/ganarmusc/aq.html">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        </a>
+                    
+                    </span>
+                </button>
+                <p class="price">$3.20</p>
+            </div>
+        </div>
+    </div>
+
+
+</script>
+<!-- Enlace a FontAwesome para los íconos -->
+<script src="https://kit.fontawesome.com/ceb1921ab7.js" crossorigin="anonymous"></script>
+
+<!-- Script para abrir/cerrar el menú -->
+<script>
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+}
+</script> 
+</body>
+</html>

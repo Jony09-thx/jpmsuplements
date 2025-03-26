@@ -1,0 +1,6 @@
+{
+    "require": {
+        "shopify/shopify-api": "*",
+        "slim/slim": "^4.0"
+    }
+}
