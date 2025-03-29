@@ -1,6 +1,6 @@
 <?php
 // Configuración de la conexión
-$host = "dpg-cvjr6uk9c44c73cbt25g-a";
+$host = "dpg-cvjr6uk9c44c73cbt25g-a.oregon-postgres.render.com";
 $dbname = "jpmsuple2";
 $user = "jpmsuple2";
 $password = "95tOJxSX9QTIuxnyg7dkBSeFTVvj9xGO";
