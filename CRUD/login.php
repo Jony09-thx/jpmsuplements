@@ -2,7 +2,7 @@
 session_start();
 
 try {
-    $pdo = new PDO("pgsql:host=localhost;dbname=jpmsuple", "postgres", "root");
+    $pdo = new PDO("pgsql:host=dpg-cvi5n2fnoe9s73argsng-a;dbname=jpmsuple", "jpmsuple_user", "uycCOwOgmgJgwIO0BhYrt1ly2rKUjylU");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "SELECT u.id_usuario, u.usuario, u.password, u.id_persona, u.rol
