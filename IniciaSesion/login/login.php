@@ -2,7 +2,7 @@
 session_start();
 
 try {
-    $pdo = new PDO("pgsql:host=dpg-cvjr6uk9c44c73cbt25g-a.oregon-postgres.render.com;dbname=jpmsuple2", "jpmsuple2", "95tOJxSX9QTIuxnyg7dkBSeFTVvj9xGO");
+    $pdo = new PDO("pgsql:host=dpg-cvjr6uk9c44c73cbt25g-a.oregon-postgres.render.com;port=5432;dbname=jpmsuple2", "jpmsuple2", "95tOJxSX9QTIuxnyg7dkBSeFTVvj9xGO");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "SELECT u.id_usuario, u.usuario, u.password, u.id_persona, u.rol
