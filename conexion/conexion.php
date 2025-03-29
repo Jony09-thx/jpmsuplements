@@ -1,9 +1,9 @@
 <?php
 // Configuración de la conexión
-$host = "dpg-cvi5n2fnoe9s73argsng-a";
-$dbname = "jpmsuple";
-$user = "jpmsuple_user";
-$password = "uycCOwOgmgJgwIO0BhYrt1ly2rKUjylU";
+$host = "dpg-cvjr6uk9c44c73cbt25g-a";
+$dbname = "jpmsuple2";
+$user = "jpmsuple2";
+$password = "95tOJxSX9QTIuxnyg7dkBSeFTVvj9xGO";
 $port= "5432";
 
 try{
