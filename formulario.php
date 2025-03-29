@@ -128,12 +128,7 @@ form > *:last-child {
     <label for="password">Contraseña:</label>
     <input type="password" id="password" name="password" required>
 
-    <!-- Campo para rol -->
-    <label for="rol">Rol:</label>
-    <select id="rol" name="rol" required>
-        <option value="cliente">Cliente</option>
-        <option value="administrador">Administrador</option>
-    </select>
+    
 
     <!-- Campos de cliente (solo si es cliente) -->
     <div id="campos_cliente" style="display: none;">
