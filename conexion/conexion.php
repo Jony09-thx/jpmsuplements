@@ -1,9 +1,9 @@
 <?php
 // Configuración de la conexión
-$host = "localhost";
+$host = "dpg-cvi5n2fnoe9s73argsng-a";
 $dbname = "jpmsuple";
-$user = "postgres";
-$password = "root";
+$user = "jpmsuple_user";
+$password = "uycCOwOgmgJgwIO0BhYrt1ly2rKUjylU";
 $port= "5432";
 
 try{
