@@ -13,9 +13,21 @@ session_start(); // Asegúrate de iniciar la sesión al principio del archivo
 		<title>Tienda suplementos</title>
 		<link rel="stylesheet" href="index.css" />
 		<style>
-iframe {
+			.video-yt{
+				position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+			}
+.video-yt iframe {
 	display: block;
     margin: 0 auto;
+	position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 			/* Opcional: Estilo para indicar que está deshabilitado visualmente */
@@ -510,9 +522,10 @@ button {
 <section class="container blogs">
 				<h1 class="heading-1">Videos</h1>
 			</section>
-
+<div class="video-yt">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TK3wf-LjDG8?si=1OoKVqKw-iF5Rv-7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<br>
+</div>
+	<br>
 		<footer class="footer">
 			<div class="container container-footer">
 				<div class="menu-footer">
