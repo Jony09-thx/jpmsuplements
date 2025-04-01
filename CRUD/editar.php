@@ -42,9 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':sexo', $sexo);
 
     if ($stmt->execute()) {
-                // Redirigir automáticamente a otro_archivo.php después de un éxito
-                header("Location: listar.php"); 
-                exit();  // Terminar la ejecución después de la redirección
+        header("Location: listar.php");
+        exit();
     } else {
         echo "Error al actualizar persona.";
     }
@@ -57,72 +56,81 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Editar Persona</title>
     <style>
-        /* Estilo básico del formulario */
-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-}
+        /* Fondo crema para la página */
+        body {
+            background-color: #f1e1c6; /* Color crema */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Espaciado entre campos */
-label {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    display: block;
-}
+        /* Estilo del formulario */
+        form {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-/* Estilo de los inputs y selects */
-input[type="text"], input[type="email"], input[type="date"], select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
+        /* Estilo de los encabezados */
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 30px;
+        }
 
-/* Cambio de color al enfocar los inputs */
-input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus, select:focus {
-    border-color: #4CAF50;
-    outline: none;
-}
+        /* Estilo de las etiquetas */
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
 
-/* Estilo del botón */
-button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        /* Estilo de los inputs y selects */
+        input[type="text"], input[type="email"], input[type="date"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s ease;
+        }
 
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
+        /* Estilo cuando el input está en foco */
+        input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus, select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
 
-/* Agregar un borde sutil a los inputs */
-input[type="text"], input[type="email"], input[type="date"], select {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+        /* Estilo del botón de submit */
+        button[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-/* Espaciado entre las filas de inputs */
-form br {
-    margin-bottom: 20px;
-}
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
 
+        /* Estilo de separación entre campos */
+        form br {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -131,43 +139,43 @@ form br {
         <input type="hidden" name="id_persona" value="<?php echo $persona['id_persona']; ?>">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" value="<?php echo $persona['nombre']; ?>" required>
-        <br>
+        
         <label for="apellido_paterno">Apellido Paterno:</label>
         <input type="text" id="apellido_paterno" name="apellido_paterno" value="<?php echo $persona['apellido_paterno']; ?>" required>
-        <br>
+        
         <label for="apellido_materno">Apellido Materno:</label>
         <input type="text" id="apellido_materno" name="apellido_materno" value="<?php echo $persona['apellido_materno']; ?>" required>
-        <br>
+        
         <label for="calle">Calle:</label>
         <input type="text" id="calle" name="calle" value="<?php echo $persona['calle']; ?>" required>
-        <br>
+        
         <label for="numero_exterior">Número Exterior:</label>
         <input type="text" id="numero_exterior" name="numero_exterior" value="<?php echo $persona['numero_exterior']; ?>">
-        <br>
+        
         <label for="numero_interior">Número Interior:</label>
         <input type="text" id="numero_interior" name="numero_interior" value="<?php echo $persona['numero_interior']; ?>">
-        <br>
+        
         <label for="colonia">Colonia:</label>
         <input type="text" id="colonia" name="colonia" value="<?php echo $persona['colonia']; ?>" required>
-        <br>
+        
         <label for="codigo_postal">Código Postal:</label>
         <input type="text" id="codigo_postal" name="codigo_postal" value="<?php echo $persona['codigo_postal']; ?>" required>
-        <br>
+        
         <label for="correo">Correo:</label>
         <input type="email" id="correo" name="correo" value="<?php echo $persona['correo']; ?>" required>
-        <br>
+        
         <label for="telefono">Teléfono:</label>
         <input type="text" id="telefono" name="telefono" value="<?php echo $persona['telefono']; ?>" required>
-        <br>
+        
         <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
         <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="<?php echo $persona['fecha_nacimiento']; ?>" required>
-        <br>
+        
         <label for="sexo">Sexo:</label>
         <select id="sexo" name="sexo" required>
             <option value="M" <?php echo ($persona['sexo'] == 'M') ? 'selected' : ''; ?>>Masculino</option>
             <option value="F" <?php echo ($persona['sexo'] == 'F') ? 'selected' : ''; ?>>Femenino</option>
         </select>
-        <br>
+        
         <button type="submit">Actualizar</button>
     </form>
 </body>
