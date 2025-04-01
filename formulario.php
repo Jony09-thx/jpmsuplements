@@ -121,6 +121,11 @@ form > *:last-child {
         <option value="F">Femenino</option>
     </select>
 
+<label for="rol">Rol:</label>
+    <select id="rol" name="rol" required>
+        <option value="cliente">Cliente</option>
+    </select>
+    
     <!-- Campos de usuario -->
     <label for="usuario">Usuario:</label>
     <input type="text" id="usuario" name="usuario" required>
