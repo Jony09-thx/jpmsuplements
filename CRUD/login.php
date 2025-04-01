@@ -24,7 +24,7 @@ try {
             header("Location: listar.php");
             exit();
         } else if ($usuario['rol'] == 'cliente') {
-            header("Location: ../index.php");
+            header("Location: editar.php");
             exit();
         }
         exit();
