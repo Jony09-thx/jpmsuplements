@@ -21,8 +21,8 @@ try {
         if ($usuario['rol'] == 'administrador') {
             header("Location: listar.php");
             exit();
-        } else if ($usuario['rol'] == [default]) {
-            header("Location: /JPMSuplements/index.php");
+        } else if ($usuario['rol'] == 'cliente') {
+            header("Location: ../index.php");
             exit();
         }
         exit();
