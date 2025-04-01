@@ -1,5 +1,7 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 try {
     $pdo = new PDO("pgsql:host=dpg-cvjr6uk9c44c73cbt25g-a.oregon-postgres.render.com;dbname=jpmsuple2", "jpmsuple2", "95tOJxSX9QTIuxnyg7dkBSeFTVvj9xGO");
