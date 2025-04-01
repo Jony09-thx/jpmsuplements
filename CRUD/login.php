@@ -23,7 +23,7 @@ try {
         if ($usuario['rol'] == 'administrador') {
             header("Location: listar.php");
             exit();
-        } else if ($usuario['rol'] == 'cliente') {
+        } else if ($usuario['rol'] == '[default]') {
             header("Location: ../IniciaSesion/perfil.php");
             exit();
         }
