@@ -21,7 +21,7 @@ try {
         if ($usuario['rol'] == 'administrador') {
             header("Location: ../../CRUD/listar.php");
             exit();
-        } else if ($usuario['rol'] == 'cliente') {
+        } else if ($usuario['rol'] == '[default]') {
             header("Location: https://jpmsuplements.onrender.com/index.php");
             exit();
         }
