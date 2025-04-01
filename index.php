@@ -57,66 +57,64 @@ button {
 		</style>
 	</head>
 	<body>
-		<header>
-			<div class="container-hero">
-				<div class="container hero">
-					<div class="customer-support">
-						<i class="fa-solid fa-headset"></i>
-						<div class="content-customer-support">
-							<span class="text">Soporte al cliente</span>
-							<span class="number">123-456-7890</span>
-						</div>
-					</div>
+	<header>
+  <div class="container-hero">
+    <div class="container hero">
+      <div class="customer-support">
+        <i class="fa-solid fa-headset"></i>
+        <div class="content-customer-support">
+          <span class="text">Soporte al cliente</span>
+          <span class="number">123-456-7890</span>
+        </div>
+      </div>
 
-					<div class="container-logo">
-						<i class="fa-solid fa-dumbbell"></i>
-						<h1 class="logo"><a href="#">JPM SUPLEMENTS STORE</a></h1>
-					</div>
+      <div class="container-logo">
+        <i class="fa-solid fa-dumbbell"></i>
+        <h1 class="logo"><a href="#">JPM SUPLEMENTS STORE</a></h1>
+      </div>
 
-					<div class="container-user">
-                    <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']): ?>
-                        <!-- Si el usuario está logueado, el ícono 'fa-user' redirige al perfil -->
-                        <a href="./IniciaSesion/perfil.php" class="user-link">
-                            <i class="fa-solid fa-user"></i>
-                        </a>
-                    <?php else: ?>
-                        <!-- Si no está logueado, muestra el ícono de login -->
-                        <a href="IniciaSesion/InicioSesion.html"><i class="fa-solid fa-user"></i></a>
-                    <?php endif; ?>
-                </div>
-				</div>
-			</div>
+      <div class="container-user">
+        <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']): ?>
+          <a href="./IniciaSesion/perfil.php" class="user-link">
+            <i class="fa-solid fa-user"></i>
+          </a>
+        <?php else: ?>
+          <a href="IniciaSesion/InicioSesion.html"><i class="fa-solid fa-user"></i></a>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
 
-			<div class="container-navbar">
-				<nav class="navbar container">
-					<i class="fa-solid fa-bars"></i>
-					<ul class="menu">
-						<li><a href="#">Inicio</a></li>
-						<li><a href="#">Acerca De</a></li>
-						<li><a href="favoritos/misfavo.php">Mis Favoritos</a></li>
-						<?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
-    						<li><a href="./CRUD/listar.php">Panel de Administración</a></li>
-						<?php endif; ?>
-					
-						<?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']): ?>
-                        <!-- Mostrar el enlace de cerrar sesión -->
-                        <li><a href="IniciaSesion/CerrarSesion.php">Cerrar sesión</a></li>
-                    <?php else: ?>
-                        <!-- Mostrar el enlace de iniciar sesión -->
-                        <li><a href="IniciaSesion/InicioSesion.html">Iniciar Sesión</a></li>
-                    <?php endif; ?>	
-					
-					</ul>
+  <div class="container-navbar">
+    <nav class="navbar container">
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <ul class="menu">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Acerca De</a></li>
+        <li><a href="favoritos/misfavo.php">Mis Favoritos</a></li>
+        <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
+          <li><a href="./CRUD/listar.php">Panel de Administración</a></li>
+        <?php endif; ?>
 
-					<form class="search-form" onsubmit="return false;">
-						<input type="search" id="searchInput" placeholder="Buscar..." />
-						<button type="button" class="btn-search">
-							<i class="fa-solid fa-magnifying-glass"></i>
-						</button>
-					</form>	
-				</nav>
-			</div>
-		</header>
+        <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']): ?>
+          <li><a href="IniciaSesion/CerrarSesion.php">Cerrar sesión</a></li>
+        <?php else: ?>
+          <li><a href="IniciaSesion/InicioSesion.html">Iniciar Sesión</a></li>
+        <?php endif; ?>
+      </ul>
+
+      <form class="search-form" onsubmit="return false;">
+        <input type="search" id="searchInput" placeholder="Buscar..." />
+        <button type="button" class="btn-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </nav>
+  </div>
+</header>
+
 
 		<main class="main-content">
 			<section class="container container-features">
