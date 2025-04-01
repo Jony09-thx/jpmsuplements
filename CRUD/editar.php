@@ -1,55 +1,3 @@
-<?php
-include '../conexion/conexion.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $sql = "SELECT * FROM persona WHERE id_persona = :id";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':id', $id);
-    $stmt->execute();
-    $persona = $stmt->fetch(PDO::FETCH_ASSOC);
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id_persona'];
-    $nombre = $_POST['nombre'];
-    $apellido_paterno = $_POST['apellido_paterno'];
-    $apellido_materno = $_POST['apellido_materno'];
-    $calle = $_POST['calle'];
-    $numero_exterior = $_POST['numero_exterior'];
-    $numero_interior = $_POST['numero_interior'];
-    $colonia = $_POST['colonia'];
-    $codigo_postal = $_POST['codigo_postal'];
-    $correo = $_POST['correo'];
-    $telefono = $_POST['telefono'];
-    $fecha_nacimiento = $_POST['fecha_nacimiento'];
-    $sexo = $_POST['sexo'];
-
-    $sql = "UPDATE persona SET nombre = :nombre, apellido_paterno = :apellido_paterno, apellido_materno = :apellido_materno, calle = :calle, numero_exterior = :numero_exterior, numero_interior = :numero_interior, colonia = :colonia, codigo_postal = :codigo_postal, correo = :correo, telefono = :telefono, fecha_nacimiento = :fecha_nacimiento, sexo = :sexo WHERE id_persona = :id";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':id', $id);
-    $stmt->bindParam(':nombre', $nombre);
-    $stmt->bindParam(':apellido_paterno', $apellido_paterno);
-    $stmt->bindParam(':apellido_materno', $apellido_materno);
-    $stmt->bindParam(':calle', $calle);
-    $stmt->bindParam(':numero_exterior', $numero_exterior);
-    $stmt->bindParam(':numero_interior', $numero_interior);
-    $stmt->bindParam(':colonia', $colonia);
-    $stmt->bindParam(':codigo_postal', $codigo_postal);
-    $stmt->bindParam(':correo', $correo);
-    $stmt->bindParam(':telefono', $telefono);
-    $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
-    $stmt->bindParam(':sexo', $sexo);
-
-    if ($stmt->execute()) {
-        header("Location: listar.php");
-        exit();
-    } else {
-        echo "Error al actualizar persona.";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -64,6 +12,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             padding: 0;
         }
 
+        /* Estilo para el encabezado */
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #4CAF50; /* Color verde */
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        /* Sombra para el encabezado */
+        h1::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 4px;
+            background-color: #4CAF50;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sombra de texto */
+        h1 {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
         /* Estilo del formulario */
         form {
             max-width: 700px;
@@ -72,14 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Estilo de los encabezados */
-        h1 {
-            text-align: center;
-            font-size: 28px;
-            color: #333;
-            margin-bottom: 30px;
         }
 
         /* Estilo de las etiquetas */
