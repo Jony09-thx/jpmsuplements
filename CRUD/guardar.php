@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sexo = $_POST['sexo'];
     $usuario = $_POST['usuario'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Encriptar contraseña
-    $rol = $_POST['rol'];
+    
 
     try {
         // Iniciar transacción para asegurar consistencia
@@ -44,13 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id_persona = $conn->lastInsertId('persona_id_persona_seq');
 
         // Insertar en tabla usuario
-        $sql_usuario = "INSERT INTO usuario (usuario, password, id_persona, rol) 
-                        VALUES (:usuario, :password, :id_persona, :rol)";
+        $sql_usuario = "INSERT INTO usuario (usuario, password, id_persona) 
+                        VALUES (:usuario, :password, :id_persona)";
         $stmt_usuario = $conn->prepare($sql_usuario);
         $stmt_usuario->bindParam(':usuario', $usuario);
         $stmt_usuario->bindParam(':password', $password);
         $stmt_usuario->bindParam(':id_persona', $id_persona);
-        $stmt_usuario->bindParam(':rol', $rol);
         $stmt_usuario->execute();
 
         // Si es cliente, insertar en tabla cliente
