@@ -22,7 +22,7 @@ try {
             header("Location: ../../CRUD/listar.php");
             exit();
         } else if ($usuario['rol'] == 'cliente') {
-            header("Location: ../../index.php");
+            header("Location: https://jpmsuplements.onrender.com/index.php");
             exit();
         }
         exit();
