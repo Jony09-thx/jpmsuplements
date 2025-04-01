@@ -128,31 +128,7 @@ form > *:last-child {
     <label for="password">Contraseña:</label>
     <input type="password" id="password" name="password" required>
 
-    
-
-    <!-- Campos de cliente (solo si es cliente) -->
-    <div id="campos_cliente" style="display: none;">
-        <label for="codigo_cliente">Código Cliente:</label>
-        <input type="number" id="codigo_cliente" name="codigo_cliente">
-
-        <label for="numero_tarjeta">Número de Tarjeta:</label>
-        <input type="number" id="numero_tarjeta" name="numero_tarjeta">
-    </div>
-
     <button type="submit">Guardar</button>
 </form>
-
-<!-- JavaScript para mostrar/ocultar campos de cliente -->
-<script>
-    document.getElementById('rol').addEventListener('change', function() {
-        var camposCliente = document.getElementById('campos_cliente');
-        if (this.value === 'cliente') {
-            camposCliente.style.display = 'block';
-        } else {
-            camposCliente.style.display = 'none';
-        }
-    });
-</script>
-
 </body>
 </html>
