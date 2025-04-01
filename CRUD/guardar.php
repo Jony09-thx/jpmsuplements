@@ -54,18 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt_usuario->execute();
 
         // Si es cliente, insertar en tabla cliente
-        if ($rol == 'cliente') {
-            $codigo_cliente = $_POST['codigo_cliente'] ?: null;
-            $numero_tarjeta = $_POST['numero_tarjeta'] ?: null;
-
-            $sql_cliente = "INSERT INTO cliente (codigo_cliente, numero_tarjeta, fecha_registro, id_persona) 
-                            VALUES (:codigo_cliente, :numero_tarjeta, CURRENT_DATE, :id_persona)";
-            $stmt_cliente = $conn->prepare($sql_cliente);
-            $stmt_cliente->bindParam(':codigo_cliente', $codigo_cliente);
-            $stmt_cliente->bindParam(':numero_tarjeta', $numero_tarjeta);
-            $stmt_cliente->bindParam(':id_persona', $id_persona);
-            $stmt_cliente->execute();
-        }
 
         // Confirmar transacción
         $conn->commit();
