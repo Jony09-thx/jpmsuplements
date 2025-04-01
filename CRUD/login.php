@@ -24,7 +24,7 @@ try {
             header("Location: listar.php");
             exit();
         } else if ($usuario['rol'] == 'cliente') {
-            header("Location: ../IniciaSesion/login/perfil.php");
+            header("Location: ../IniciaSesion/perfil.php");
             exit();
         }
         exit();
